@@ -1,14 +1,26 @@
+// External imports
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
 import styled from 'styled-components'
-import { boxShadow, font } from '../helpers/constants'
+
+// Components
+import Nav from "./Nav"
+
+// Styles
+import { boxShadow, font } from '../constants'
 
 // Styled components
+const CounterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const CounterButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+  margin-top: 6em;
+  background: linear-gradient(to top, #09203f 0%, #537895 100%);
   border-radius: 0.25em;
   box-shadow: ${boxShadow};
   width: 50vw;
@@ -35,24 +47,6 @@ const CounterButtonContainer = styled.div`
   }
 `
 
-const BackButton = styled.button`
-  padding: 0.5em 1em;
-  margin: 2em;
-  border-radius: 1.5em;
-  border: none;
-  font-size: 1em;
-  cursor: pointer;
-  box-shadow: ${boxShadow};
-  font-family: ${font};
-  background: linear-gradient(109.6deg, rgb(177, 173, 219) 11.2%, rgb(245, 226, 226) 91.1%);
-  &:hover {
-    background: radial-gradient(circle at 10% 20%, rgb(254, 255, 165) 0%, rgb(255, 232, 182) 90%);
-  }
-  .link {
-    color: #414141;
-  }
-`
-
 const Counter = () => {
   const [count, setCount] = useState(0)
 
@@ -65,16 +59,14 @@ const Counter = () => {
   }
 
   return (
-    <>
+    <CounterContainer>
+      <Nav />
       <CounterButtonContainer data-testid="counter-component">
         <button onClick={handleDecrease}>–</button>
         <p>{count}</p>
         <button onClick={handleIncrease}>+</button>
       </CounterButtonContainer>
-      <BackButton>
-        <Link className="link" to="/" >Back to Home</Link>
-      </BackButton>
-    </>
+    </CounterContainer>
   )
 }
 

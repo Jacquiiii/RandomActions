@@ -1,7 +1,12 @@
+// Currently not in use
+
+// External imports
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from 'styled-components'
-import { boxShadow, font } from '../helpers/constants'
+
+// Styles
+import { boxShadow, font } from '../constants'
 
 // Styled components
 const TopMoodContainer = styled.p`
