@@ -6,13 +6,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { ThemeContext } from '../providers/ThemeProvider'
 
 // Styles
-import './styles.css'
+import './styles/styles.css'
 
 // Components
 import Home from './Home'
 import Counter from './Counter'
 import Meme from './Meme'
-// import Mood from './Mood'
+import Todo from './Todo'
 
 function App() {
   const { theme } = useContext(ThemeContext)
@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Counter" element={<Counter />} />
           <Route exact path="/Meme" element={<Meme />} />
-          {/* <Route exact path="/Mood" element={<Mood />} /> */}
+          <Route exact path="/Todo" element={<Todo />} />
         </Routes>
       </BrowserRouter>
     </div>

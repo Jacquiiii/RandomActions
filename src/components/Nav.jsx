@@ -44,6 +44,7 @@ const Nav = () => {
       <button onClick={handleThemeChange}>Theme</button>
       <button><Link className="link" to="/Counter" >Counter</Link></button>
       <button><Link className="link" to="/Meme" >Meme Generator</Link></button>
+      <button><Link className="link" to="/Todo" >Todo List</Link></button>
     </NavBar>
   )
 }
