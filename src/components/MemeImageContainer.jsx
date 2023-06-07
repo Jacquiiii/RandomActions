@@ -3,19 +3,19 @@ import React from "react"
 import styled from 'styled-components'
 
 // Styles
-import { boxShadow, font } from '../constants'
+import { boxShadow, font } from '../constants/constants'
 
 // Styled components
 const MemeContainer = styled.div`
   margin: 1.5em;
-  font-size: 1em;
+  ${'' /* font-size: 1em; */}
   border-radius: 0.25em;
   border: none;
   cursor: pointer;
   font-family: ${font};
   img {
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: auto;
     box-shadow: ${boxShadow};
     border-radius: 0.25em;
   }

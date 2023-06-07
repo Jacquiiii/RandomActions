@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Nav from "./Nav"
 
 // Styles
-import { boxShadow, font } from '../constants'
+import { boxShadow, font } from '../constants/constants'
 
 // Styled components
 const CounterContainer = styled.div`

@@ -8,27 +8,26 @@ import MemeImageContainer from './MemeImageContainer'
 import Nav from "./Nav"
 
 // Styles
-import { boxShadow, font } from '../constants'
+import { boxShadow, font } from '../constants/constants'
 
 // Styled components
 const MemeContainer = styled.div`
   padding: 0.25em;
-  margin-top: 4em;
+  margin-top: 3em;
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
 const MemeButton = styled.div`
-  font-size: 1.5em;
+  font-size: 30px;
   font-weight: bold;
   border: none;
   cursor: pointer;
   font-family: ${font};
   color: whitesmoke;
-  width: 20%;
-  padding: 0.5em 0.25em;
   border-radius: 0.25em;
+  padding: 1em 2em;
   background: linear-gradient(to top, #09203f 0%, #537895 100%);
   box-shadow: ${boxShadow};
 `

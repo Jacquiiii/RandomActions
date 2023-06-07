@@ -1,12 +1,12 @@
 // External imports
-import React, { useState, useReducer } from "react"
+import React, { useState, useReducer, useCallback } from "react"
 import styled from 'styled-components'
 
 // Components
 import Nav from "./Nav"
 
 // Styles
-import { boxShadow, font } from '../constants'
+import { boxShadow, font } from '../constants/constants'
 
 // Styled components
 const TodoContainer = styled.div`
@@ -89,13 +89,13 @@ const Todo = () => {
   const [task, setTask] = useState("")
   const [todos, dispatch] = useReducer(reducer, [])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback((e) => {
     e.preventDefault()
     if (task !== "") {
       dispatch({ type: "add", payload: { task: task } })
       setTask("")
     }
-  }
+  }, [task, dispatch])
 
   return (
     <TodoContainer>
@@ -104,6 +104,7 @@ const Todo = () => {
         <input
           type='text'
           value={task}
+          placeholder="Please enter a task"
           onChange={(e) => setTask(e.target.value)}
         />
         <Button onClick={handleSubmit}>Submit</Button>
