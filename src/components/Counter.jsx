@@ -7,6 +7,7 @@ import Nav from "./Nav"
 
 // Styles
 import { boxShadow, font } from '../constants/constants'
+import HookType from "./HookType"
 
 // Styled components
 const CounterContainer = styled.div`
@@ -19,7 +20,7 @@ const CounterButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-top: 6em;
+  margin-top: 4em;
   background: linear-gradient(to top, #09203f 0%, #537895 100%);
   border-radius: 0.25em;
   box-shadow: ${boxShadow};
@@ -61,6 +62,7 @@ const Counter = () => {
   return (
     <CounterContainer>
       <Nav />
+      <HookType hook="useState useContext"/>
       <CounterButtonContainer data-testid="counter-component">
         <button onClick={handleDecrease}>–</button>
         <p>{count}</p>

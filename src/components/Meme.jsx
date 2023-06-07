@@ -9,14 +9,15 @@ import Nav from "./Nav"
 
 // Styles
 import { boxShadow, font } from '../constants/constants'
+import HookType from "./HookType"
 
 // Styled components
 const MemeContainer = styled.div`
   padding: 0.25em;
-  margin-top: 3em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2.5em;
 `
 
 const MemeButton = styled.div`
@@ -48,6 +49,7 @@ const Meme = () => {
   return (
     <>
       <Nav />
+      <HookType hook="useState useContext"/>
       <MemeContainer>
         <MemeButton onClick={ generateMeme }>Click here!</MemeButton>
         { meme !== '' && <MemeImageContainer memeImg={meme}/> }

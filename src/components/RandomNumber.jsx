@@ -7,6 +7,7 @@ import Nav from "./Nav"
 
 // Styles
 import { boxShadow, font } from '../constants/constants'
+import HookType from "./HookType"
 
 // Styled components
 const RandomNumberContainer = styled.div`
@@ -16,9 +17,9 @@ const RandomNumberContainer = styled.div`
 `
 
 const GenerateContainer = styled.div`
-  margin-top: 3em;
   display: flex;
   align-items: center;
+  margin-top: 2.5em;
   button {
     font-size: 30px;
     font-weight: bold;
@@ -79,6 +80,7 @@ const RandomNumber = () => {
   return (
     <RandomNumberContainer>
       <Nav />
+      <HookType hook="useState useMemo useContext"/>
       <GenerateContainer>
         <button onClick={numberGenerator}>Click here!</button>
       </GenerateContainer>

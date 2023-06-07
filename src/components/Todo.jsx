@@ -7,6 +7,7 @@ import Nav from "./Nav"
 
 // Styles
 import { boxShadow, font } from '../constants/constants'
+import HookType from "./HookType"
 
 // Styled components
 const TodoContainer = styled.div`
@@ -20,7 +21,7 @@ const SubmitContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3em 0;
+  margin: 2.5em 0 1em 0;
   input {
     font-size: 20px;
     width: 25vw;
@@ -100,6 +101,7 @@ const Todo = () => {
   return (
     <TodoContainer>
       <Nav />
+      <HookType hook="useState useReducer useCallback useContext"/>
       <SubmitContainer>
         <input
           type='text'
