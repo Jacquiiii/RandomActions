@@ -24,7 +24,7 @@ const TrueHookBubble = styled.div`
     color: black;
     width: 125px;
     height: 125px;
-    border-radius: 1em; 
+    border-radius: 0.25em; 
     margin: 0.25em 1em;
     text-align: center;
     box-shadow: ${boxShadow};
@@ -54,9 +54,9 @@ const FalseHookBubble = styled.div`
     padding: 0.25em;
     font-size: 15px;
     color: black;
-    width: 125px;
-    height: 125px;
-    border-radius: 1em; 
+    width: 75px;
+    height: 75px;
+    border-radius: 50%; 
     margin: 0.25em 1em;
     text-align: center;
     box-shadow: ${boxShadow};
