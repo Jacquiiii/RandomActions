@@ -4,10 +4,13 @@ import styled from 'styled-components'
 
 // Components
 import Nav from "./Nav"
+import HookType from "./HookType"
+
+// Hooks
+import useHookBubble from "../hooks/useHookBubble"
 
 // Styles
 import { boxShadow, font } from '../constants/constants'
-import HookType from "./HookType"
 
 // Styled components
 const CounterContainer = styled.div`
@@ -50,6 +53,7 @@ const CounterButtonContainer = styled.div`
 
 const Counter = () => {
   const [count, setCount] = useState(0)
+  const { hookBubble, handleClick } = useHookBubble()
 
   const handleIncrease = () => {
     setCount(count => count + 1)
@@ -62,7 +66,11 @@ const Counter = () => {
   return (
     <CounterContainer>
       <Nav />
-      <HookType hook="useState useContext"/>
+      <HookType 
+        hooks={["useState", "useContext", "customHook"]}
+        onClick={handleClick} 
+        hookBubble={hookBubble}
+      />
       <CounterButtonContainer data-testid="counter-component">
         <button onClick={handleDecrease}>–</button>
         <p>{count}</p>

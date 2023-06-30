@@ -6,12 +6,13 @@ import styled from 'styled-components'
 import { font, boxShadow } from '../constants/constants'
 
 // Styled components
-const HookTypeContainer = styled.div`
+const TrueHookBubble = styled.div`
   display: flex;
   align-self: flex-start;
   width: 15%;
   font: ${font};
   position: relative;
+  cursor: pointer;
   div {
     display: flex;
     flex-direction: column;
@@ -19,11 +20,43 @@ const HookTypeContainer = styled.div`
     justify-content: center;
     background: radial-gradient(circle at 6.4% 9.8%, rgb(88, 242, 174) 0%, rgb(0, 130, 240) 97.9%);
     padding: 0.25em;
-    font-size: 12px;
+    font-size: 15px;
     color: black;
-    width: 110px;
-    height: 90px;
-    border-radius: 50%; 
+    width: 125px;
+    height: 125px;
+    border-radius: 1em; 
+    margin: 0.25em 1em;
+    text-align: center;
+    box-shadow: ${boxShadow};
+    font-weight: bold;
+    position: absolute;
+    top: -25px;
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+`
+
+const FalseHookBubble = styled.div`
+  display: flex;
+  align-self: flex-start;
+  width: 15%;
+  font: ${font};
+  position: relative;
+  cursor: pointer;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #dcdcdc;
+    padding: 0.25em;
+    font-size: 15px;
+    color: black;
+    width: 125px;
+    height: 125px;
+    border-radius: 1em; 
     margin: 0.25em 1em;
     text-align: center;
     box-shadow: ${boxShadow};
@@ -35,11 +68,22 @@ const HookTypeContainer = styled.div`
 
 const HookType = (props) => {
   return (
-    <HookTypeContainer>
-      <div>
-        <span>{props.hook}</span>
-      </div>
-    </HookTypeContainer>
+    <>
+      {props.hookBubble &&
+        <TrueHookBubble onClick={props.onClick}>
+          <div>
+            <ul>
+              {props.hooks.map(hook => <li>{hook}</li>)}
+            </ul>
+          </div>
+        </TrueHookBubble>
+      }
+      {!props.hookBubble &&
+        <FalseHookBubble onClick={props.onClick}>
+          <div>Hooks used</div>
+        </FalseHookBubble>
+      }
+    </>
   )
 }
 

@@ -4,10 +4,13 @@ import styled from 'styled-components'
 
 // Components
 import Nav from "./Nav"
+import HookType from "./HookType"
+
+// Hooks
+import useHookBubble from "../hooks/useHookBubble"
 
 // Styles
 import { boxShadow, font } from '../constants/constants'
-import HookType from "./HookType"
 
 // Styled components
 const TodoContainer = styled.div`
@@ -89,6 +92,7 @@ const reducer = (todos, action) => {
 const Todo = () => {
   const [task, setTask] = useState("")
   const [todos, dispatch] = useReducer(reducer, [])
+  const { hookBubble, handleClick } = useHookBubble()
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault()
@@ -101,7 +105,11 @@ const Todo = () => {
   return (
     <TodoContainer>
       <Nav />
-      <HookType hook="useState useReducer useCallback useContext"/>
+      <HookType 
+        hooks={["useState", "useContext", "useReducer", "useCallback", "customHook"]}
+        onClick={handleClick} 
+        hookBubble={hookBubble}
+      />
       <SubmitContainer>
         <input
           type='text'

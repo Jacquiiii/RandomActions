@@ -6,10 +6,13 @@ import styled from 'styled-components'
 // Componenents
 import MemeImageContainer from './MemeImageContainer'
 import Nav from "./Nav"
+import HookType from "./HookType"
+
+// Hooks
+import useHookBubble from "../hooks/useHookBubble"
 
 // Styles
 import { boxShadow, font } from '../constants/constants'
-import HookType from "./HookType"
 
 // Styled components
 const MemeContainer = styled.div`
@@ -35,6 +38,7 @@ const MemeButton = styled.div`
 
 const Meme = () => {
   const [meme, setMeme] = useState("")
+  const { hookBubble, handleClick } = useHookBubble()
 
   const generateMeme = () => {
     axios.get('https://api.imgflip.com/get_memes')
@@ -49,7 +53,11 @@ const Meme = () => {
   return (
     <>
       <Nav />
-      <HookType hook="useState useContext"/>
+      <HookType 
+        hooks={["useState", "useContext", "customHook"]}
+        onClick={handleClick} 
+        hookBubble={hookBubble}
+      />
       <MemeContainer>
         <MemeButton onClick={ generateMeme }>Click here!</MemeButton>
         { meme !== '' && <MemeImageContainer memeImg={meme}/> }

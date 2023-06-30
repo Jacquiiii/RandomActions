@@ -4,10 +4,13 @@ import styled from 'styled-components'
 
 // Components
 import Nav from "./Nav"
+import HookType from "./HookType"
+
+// Hooks
+import useHookBubble from "../hooks/useHookBubble"
 
 // Styles
 import { boxShadow, font } from '../constants/constants'
-import HookType from "./HookType"
 
 // Styled components
 const RandomNumberContainer = styled.div`
@@ -67,6 +70,7 @@ const Result = styled.div`
 
 const RandomNumber = () => {
   const [randomNumber, setRandomNumber] = useState(0)
+  const { hookBubble, handleClick } = useHookBubble()
 
   const numberGenerator = () => {
     const number = Math.floor(Math.random() * 100) + 1
@@ -80,7 +84,11 @@ const RandomNumber = () => {
   return (
     <RandomNumberContainer>
       <Nav />
-      <HookType hook="useState useMemo useContext"/>
+      <HookType
+        hooks={["useState", "useContext", "useMemo", "customHook"]}
+        onClick={handleClick} 
+        hookBubble={hookBubble}
+      />
       <GenerateContainer>
         <button onClick={numberGenerator}>Click here!</button>
       </GenerateContainer>
